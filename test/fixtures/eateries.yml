@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  bar: false
+  home_delievery: false
+  non_veg: false
+  card_type: MyString
+  buffet: false
+  outdoor_seating: false
+
+two:
+  name: MyString
+  bar: false
+  home_delievery: false
+  non_veg: false
+  card_type: MyString
+  buffet: false
+  outdoor_seating: false
