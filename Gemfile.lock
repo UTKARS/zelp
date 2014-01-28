@@ -65,7 +65,6 @@ GEM
     json (1.8.1)
     launchy (2.4.2)
       addressable (~> 2.3)
-    letsrate (1.0.9)
     libv8 (3.16.14.3)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -150,7 +149,6 @@ DEPENDENCIES
   heroku
   jbuilder (~> 1.2)
   jquery-rails
-  letsrate
   pg
   rails (= 4.0.0)
   rails_12factor
