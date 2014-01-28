@@ -1,2 +1,11 @@
 
-<%= "Welcome to Zelp!" %>
+Welcome to Zelp!
+<br /><br />
+
+Search for Restaurants
+
+<%= form_tag(search_eatery_index_path, method: "get") do  %>
+             <%= text_field_tag 'name', nil, :placeholder => "Search by restaurant name, cuisine, locality" %>
+
+			<%= submit_tag('Search') %>
+<% end %>

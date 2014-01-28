@@ -1,0 +1,44 @@
+<table border ="1" >
+	<tr>
+		<th>Name</th>
+		<th>Cuisines</th>
+		<th>locations</th>
+		<th>Outdoor Seating</th>
+		<th>Non Veg</th>
+		<th>Bar</th>
+		<th>Credit Cards</th>
+		<th>Reviews</th>
+		<th>Ratings</th>
+	</tr>
+	<% for restaurant in @results%>
+		<tr>
+			<td>
+				<%= link_to restaurant.name, eatery_path(restaurant) %>
+			</td>
+			<td>
+				<%= restaurant.get_cuisines %>
+			</td>
+			<td>
+				<%= restaurant.get_locations %>
+			</td>
+			<td>
+				<%= seating_plan_for restaurant %>
+			</td>
+			<td>
+				<%= is_non_veg restaurant %>
+			</td>
+			<td>
+				<%= has_bar restaurant %>
+			</td>
+			<td>
+				<%= cards_acceptance restaurant %>
+			</td>
+			<td>
+				<%= link_to restaurant.reviews.count, eatery_path(restaurant) %>
+			</td>	
+			<td>
+				<%= rating restaurant%>
+			</td>					
+		</tr>
+	<% end %>
+</table>

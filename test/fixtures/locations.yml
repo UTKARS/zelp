@@ -3,9 +3,7 @@
 one:
   name: MyString
   contact_number: MyString
-  eatery_id: 1
 
 two:
   name: MyString
   contact_number: MyString
-  eatery_id: 1

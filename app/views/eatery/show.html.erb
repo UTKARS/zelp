@@ -1,0 +1,52 @@
+
+<h2><%= @eatery.name %></h2>
+
+<% if user_signed_in? %>
+	
+	Your Rating : 
+	<button class="left" title="0.5"></button>
+	<button class="left" title="1.0"></button>
+	<button class="left" title="1.5"></button>
+	<button class="left" title="2.0"></button>
+	<button class="left" title="2.5"></button>
+	<button class="left" title="3.0"></button>
+	<button class="left" title="3.5"></button>
+	<button class="left" title="4.0"></button>
+	<button class="left" title="4.5"></button>
+	<button class="left" title="5.0"></button>
+<% end %>
+<h3>Highlights</h3>
+
+<p>Located At : <%= @eatery.get_locations %> </p>
+<p>Cook great : <%= @eatery.get_cuisines %> </p>
+
+<% if @eatery.rating.nil? %>
+	<h5>Ratings</h5> :<div id= "rating">Not rated yet!</div>
+	<h5>Votes</h5> :<div id="votes"><%= @eatery.votes %></div>
+<% else %>
+	<h5>Ratings</h5> :<div id= "rating"><%= @eatery.rating %></div>
+	<h5>Votes</h5> :<div id="votes"><%= @eatery.votes %></div>
+<% end %>
+
+<% unless @eatery.reviews.empty? %>
+	<h3>Reviews</h3>
+	<% for review in @eatery.reviews %>
+		<p>
+			<%= truncate review.content, length: 200 %>
+		</p>
+		Posted by: <b><%= review.user.full_name %></b><br /> 
+		<hr align="left" width="300px">
+	<% end %>
+<% else %>
+	<h6>Be the first to leave a review</h6>
+<% end %>
+
+<%= hidden_field_tag :eatery, @eatery.id %>
+
+
+<%= form_tag(review_eatery_path) do  %>
+            <%= text_area_tag 'review', nil, :cols => 24, :rows => 3, :width => '300', :maxlength => 200, :placeholder => "Post your review here." %>
+            
+			<%= submit_tag('Post') %>
+<% end %>
+

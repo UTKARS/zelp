@@ -1,4 +1,32 @@
 .generic
 {
-text-align:center;	
+text-align:left;	
+}
+
+.all{
+	float:right;
+}
+
+.search{
+	background:url(assets/search.jpg) 
+}
+
+.alert{
+	color:red;
+	text-align: center;
+}
+
+.notice{
+	color: green;
+	text-align: center;
+}
+
+.left{
+	margin-left: 0;
+	padding-top: 23px;
+	padding-left: 12px;
+}
+
+.filled{
+	background-color: green;
 }

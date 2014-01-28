@@ -11,11 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140126163824) do
+ActiveRecord::Schema.define(version: 20140128085415) do
 
   create_table "cuisines", force: true do |t|
     t.string   "name"
-    t.integer  "eatery_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -30,11 +29,34 @@ ActiveRecord::Schema.define(version: 20140126163824) do
     t.boolean  "outdoor_seating"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "rating"
+    t.integer  "votes"
+  end
+
+  create_table "eatery_cuisines", force: true do |t|
+    t.integer  "eatery_id"
+    t.integer  "cuisine_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "eatery_locations", force: true do |t|
+    t.integer  "eatery_id"
+    t.integer  "location_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "locations", force: true do |t|
     t.string   "name"
     t.string   "contact_number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "ratings", force: true do |t|
+    t.float    "value"
+    t.integer  "user_id"
     t.integer  "eatery_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -42,7 +64,6 @@ ActiveRecord::Schema.define(version: 20140126163824) do
 
   create_table "reviews", force: true do |t|
     t.text     "content"
-    t.float    "rating"
     t.integer  "eatery_id"
     t.integer  "user_id"
     t.datetime "created_at"
@@ -62,6 +83,8 @@ ActiveRecord::Schema.define(version: 20140126163824) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

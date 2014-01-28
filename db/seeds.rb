@@ -116,3 +116,11 @@
 # eatery.cuisines.create(name: "Italian")
 # eatery.cuisines.create(name: "American")
 # eatery.cuisines.create(name: "Continental")
+
+# eatery = Eatery.find_by_name('Fork You')
+# eatery.locations.create(name: 'Hyderabad', contact_number: "2345336")
+# eatery.cuisines.create(name: "Bakery")
+# eatery.cuisines.create(name: "American")
+# eatery.cuisines.create(name: "Chaat")
+
+# puts "seeding done"
