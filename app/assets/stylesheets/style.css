@@ -5,6 +5,7 @@ text-align:left;
 
 .all{
 	float:right;
+	text-decoration: none;
 }
 
 .search{
@@ -29,4 +30,12 @@ text-align:left;
 
 .filled{
 	background-color: green;
+}
+
+#home{
+	text-align: center;
+}
+
+.top_links{
+	text-decoration: none;
 }

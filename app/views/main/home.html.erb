@@ -1,11 +1,13 @@
+<div id="home">
+	Welcome to Zelp!
+	<br /><br />
 
-Welcome to Zelp!
-<br /><br />
+	Search for Restaurants
 
-Search for Restaurants
+	<%= form_tag(search_eatery_index_path, method: "get") do  %>
+	             <%= text_field_tag 'name', nil, :placeholder => "Search by restaurant name, cuisine, locality" %>
 
-<%= form_tag(search_eatery_index_path, method: "get") do  %>
-             <%= text_field_tag 'name', nil, :placeholder => "Search by restaurant name, cuisine, locality" %>
+				<%= submit_tag('Search') %>
+	<% end %>
 
-			<%= submit_tag('Search') %>
-<% end %>
+</div>
