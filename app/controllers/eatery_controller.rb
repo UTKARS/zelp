@@ -21,7 +21,7 @@ class EateryController < ApplicationController
 	end
 
 	def index
-		@results = Eatery.all
+		@results = Eatery.order("created_at").all
 	end
 
 	def show
