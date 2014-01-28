@@ -28,9 +28,12 @@ class EateryController < ApplicationController
 		@eatery = Eatery.find(params[:id])
 	end
 
-	def review		
+	def review			
+		if !user_signed_in?
+			session[:next] ||= request.referer
+			return redirect_to new_user_session_path, alert: "Please sign in before you make a post." 			
+		end
 		return redirect_to :back, alert: "Please write something before you post." if params[:review].empty? 
-		return redirect_to :back, alert: "Please sign in before you make a post." if !user_signed_in?
 		current_user.reviews.create(content: params[:review], eatery_id: params[:id] )
 		redirect_to :back, notice: "Review posted Successfully"
 	end
