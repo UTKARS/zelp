@@ -6,6 +6,9 @@ class Eatery < ActiveRecord::Base
 	has_many :locations, through: :eatery_locations
 
 	has_many :ratings
+
+	scope :search, ->(name) { where("LOWER(name) LIKE ?", "%#{name.downcase}%") }
+	
 	def get_cuisines
 		cuisines = []
 		self.cuisines.each {|c| cuisines << c.name}

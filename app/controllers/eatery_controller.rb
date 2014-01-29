@@ -1,21 +1,20 @@
 class EateryController < ApplicationController
 
 	def search
-		name = Eatery.find_by_name params[:name]
-		cuisine = Cuisine.find_by_name params[:name]
-		location = Location.find_by_name params[:name]
+		eateries = Eatery.search params[:name]
+		cuisine_eateries = Cuisine.search params[:name]
+		location_eateries = Location.search params[:name]
 
 		if params[:name].empty?
 			@results = Eatery.all
-		elsif name
-			@results = name
-		elsif cuisine
-			@results = cuisine.has_eateries
-		elsif location
-			@results = location.has_eateries
-		elsif name.nil?
-			@results = Eatery.where("name LIKE ?", "%#{params[:name].split.first}%")
-			flash.now[:notice] = "No match found. Recommended restaurants."
+		elsif !eateries.empty?
+			@results = eateries
+		elsif !cuisine_eateries.empty?
+			@results = cuisine_eateries
+		elsif !location_eateries.empty?
+			@results = location_eateries
+		else
+			flash.now[:alert] = "We're sorry, No match found."
 		end
 
 	end

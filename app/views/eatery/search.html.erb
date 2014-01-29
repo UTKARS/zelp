@@ -1,4 +1,6 @@
 
-<% unless @results.empty? %>
+<% unless @results.nil? %>
 	<%= render :partial=>"eatery_frame" %>
+<% else %>
+	<%= link_to 'Search Again', :back %>
 <% end %>
